@@ -1,0 +1,11 @@
+comment is a small preprocessor for stripping comments from input. It
+is useful for languages that don't support comments on their own. comment
+supports both block comments and single-line comment. Block comments do not
+nest. By default C-like block comment delimiters (/* comment */) and
+C++-like single-line comments (// comment) are used, but any other
+string may be specified instead.
+
+To install, run `make', followed by `make install' (possibly as root):
+
+	$ make
+	# make install

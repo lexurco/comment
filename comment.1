@@ -1,0 +1,60 @@
+.Dd August 4, 2024
+.Dt COMMENT 1
+.Os
+.Sh NAME
+.Nm comment
+.Nd strip comments from input
+.Sh SYNOPSIS
+.Nm
+.Op Fl b Ar beginstring
+.Op Fl e Ar endstring
+.Op Fl s Ar singlestring
+.Op Ar
+.Sh DESCRIPTION
+The utility
+.Nm
+reads files sequentially, writing them to standard output with comments
+stripped.
+If
+.Ar file
+is a single dash
+.Pq Sq -
+or absent,
+.Nm
+reads from standard input.
+.Pp
+Both block comments and single-line comments are supported.
+The strings
+.Dq /*
+starts a block comment,
+.Dq */
+ends a block comment and
+.Dq //
+starts a single-line comment,
+unless specified otherwise.
+Block comments do not nest.
+.Pp
+The options are as follows:
+.Bl -tag -width Ds
+.It Fl b Ar beginstring
+Use
+.Ar beginstring
+to start block comments.
+If empty,
+no block comments are stripped.
+.It Fl e Ar endstring
+Use
+.Ar endstring
+to end block comments.
+If empty,
+block comments go until the end of the input.
+.It Fl s Ar singlestring
+Use
+.Ar singlestring
+to begin single-line comments.
+If empty, no single-line comments are stripped.
+.El
+.Sh EXIT STATUS
+.Ex -std
+.Sh AUTHORS
+.An Alexander Arkhipov Aq Mt aa@manpager.org .
